@@ -1,0 +1,61 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Register an Account</div>
+      <div class="card-body">
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  	{% csrf_token %}
+	{{ form|crispy }}
+<!-- 	<div class="form-group">
+		<div class="form-row">
+			<div class="col-md-12">
+				{{ form.username.label_tag }}
+				{{ form.username }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-12">
+				{{ form.email.label_tag }}
+				{{ form.email }}
+			</div>
+		</div>			
+		<div class="form-row">
+			<div class="col-md-12">
+				{{ form.password1.label_tag }}
+				{{ form.password1 }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-12">
+				{{ form.password2.label_tag }}
+				{{ form.password2 }}
+			</div>
+		</div>
+ -->
+<!-- {{ form.as_p }} -->  
+  {% if redirect_field_value %}
+<!-- 		<div class="form-row">
+			<div class="col-md-12">
+ -->				<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+<!-- 			</div>	
+		</div>
+ -->
+  {% endif %}
+
+<!-- 		<div class="form-row">
+			<div class="col-md-12">
+ -->  				<button class="btn btn-primary btn-block" type="submit">{% trans "Sign Up" %} &raquo;</button>
+<!-- 			</div>
+		</div>
+ 	</div>-->
+</form>
+        </div>
+      </div>
+    
+{% endblock %}

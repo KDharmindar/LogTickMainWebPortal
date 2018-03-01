@@ -1,0 +1,33 @@
+{% extends "dashboard_navigation_base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+  
+
+{% block content %}
+
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Project</li>
+      </ol>
+      
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-tasks" aria-hidden="true"></i> New Project</div>
+        <div class="card-body">
+	        <div class="container">
+	        	<form method="post" action="{% url 'new_project' %}">
+	        		{{ form|crispy }}
+	        		{% csrf_token %}
+	        		<button class="btn btn-primary btn-block" type="submit">Create Project</button>
+	        	</form>
+	        </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+      </div>  
+
+ 
+ {% endblock %}

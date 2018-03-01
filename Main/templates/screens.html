@@ -1,0 +1,37 @@
+{% extends "dashboard_navigation_base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+  
+
+{% block content %}
+
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">This Week</li>
+      </ol>
+      
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-camera" aria-hidden="true"></i> Recent Screenshots</div>
+        <div class="card-body">
+	        <div class="container">
+	        	<div class="row">
+	        		{% for process in processes %}
+		        		<div class="col-lg-2 col-md-6 col-sm-12">
+		        			<div class="container" style="margin-bottom:10px !important">
+		        				<img src="data:image/jpg;base64,{{process.image_data}}" width="128px" height="128px"/>	
+		        			</div>
+		        		</div>
+	        		{% endfor %}
+	        	</div>
+	        </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>  
+
+ 
+ {% endblock %}

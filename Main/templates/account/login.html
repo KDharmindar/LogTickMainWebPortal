@@ -1,0 +1,38 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form|crispy }}
+<!--    {% for field in form %}
+  	<div class="form-group">
+  		{{field.errors}}  		
+  		<label>{{field.label_tag}}</label>
+  		{{ field }}
+  	</div>              
+  {% endfor %} -->
+  
+  
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> -->
+<button class="btn btn-primary btn-block" type="submit">{% trans "Login" %}</button>
+</form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="{{ signup_url }}">Register an Account</a>
+          <a class="d-block small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
