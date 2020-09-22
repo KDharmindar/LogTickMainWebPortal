@@ -4,6 +4,7 @@ from Main.main_models.Project import Project
 from Main.main_models.ProjectTask import ProjectTask
 from Main.main_models.Calendar_Week import Calendar_Week
 from Main.main_models.ProcessData import ProcessData
+from Main.main_models.ProcessedData import ProcessedData
 from Main.main_models.ProjectTeam import ProjectTeam
 
 

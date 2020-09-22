@@ -20,12 +20,14 @@
         <div class="card-body">
 	        <div class="container">
 	        	<div class="row">
-	        		{% for process in processes %}
+              {% for process in processes %}
+              {% if process.image_data %}
 		        		<div class="col-lg-2 col-md-6 col-sm-12">
 		        			<div class="container" style="margin-bottom:10px !important">
-		        				<img src="data:image/jpg;base64,{{process.image_data}}" width="128px" height="128px"/>	
+		        				<img src="{{process.image_data.url}}" width="128px" height="128px"/>	
 		        			</div>
-		        		</div>
+                </div>
+              {% endif %}
 	        		{% endfor %}
 	        	</div>
 	        </div>
